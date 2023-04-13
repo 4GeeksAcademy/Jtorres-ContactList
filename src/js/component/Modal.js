@@ -26,59 +26,115 @@ export const Modal = props => {
                 </div>
             </div>
         </div>
-			{/* Modal 2 Edit Contact*/}
-			<div className="modal fade" id="addContact" tabIndex="-1">
-				<div className="modal-dialog">
-					<div className="modal-content">
-						<div className="modal-header">
-							<h1 className="modal-title fs-5" id="addContactLabel">Time to Configure this bad boy</h1>
-							<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div className="modal-body">
-						{/* body */}
-							<div className="container-fluid">
-								<h1 className="fs-1 text-center py-4">Edit Contact</h1>
-								<div className="mb-3">
-									<div className="mb-3 row">
-										<label htmlFor="inputName" className="form-label">Full Name</label>
-									<div className="col-sm-10">
-										<input className="form-control" id="inputName" placeholder="Juanito"/>
-									</div>
-									</div>
+		{/* Modal 2 add Contact*/}
+		<div className="modal fade" id="editContact" tabIndex="-1">
+			<div className="modal-dialog">
+				<div className="modal-content">
+					<div className="modal-header">
+						<h1 className="modal-title fs-5" id="addContactLabel">Time to Configure this bad boy</h1>
+						<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div className="modal-body">
+					{/* body */}
+						<div className="container-fluid">
+							<h1 className="fs-1 text-center py-4">Edit Contact</h1>
+							<div className="mb-3">
+								<div className="mb-3 row">
+									<label htmlFor="inputName" className="form-label">Full Name</label>
+								<div className="col-sm-10">
+									<input className="form-control" id="inputName" placeholder="Juanito"/>
 								</div>
-								<div className="mb-3">
-									<div className="mb-3 row">
-										<label htmlFor="inputEmail" className="form-label">Email</label>
-									<div className="col-sm-10">
-										<input type="email" className="form-control" id="inputEmail" placeholder="yolo@nobodyisme.com"/>
-									</div>
-								</div>
-								</div>
-								<div className="mb-3">
-									<div className="mb-3 row">
-										<label htmlFor="inputPhone" className="form-label">Phone</label>
-									<div className="col-sm-10">
-										<input type="phone" className="form-control" id="inputPhone" placeholder="+00 000-000-0000"/>
-									</div>
-									</div>
-								</div>
-								<div className="mb-3">
-									<div className="mb-3 row">
-										<label htmlFor="inputAddress" className="form-label">Address</label>
-									<div className="col-sm-10">
-										<input type="address" className="form-control" id="inputAddress" placeholder="Night City"/>
-									</div>
-									</div>
-								</div>
-								<div className="d-grid gap-3 py-4">
-									<button className="btn btn-primary" type="button">Done M8</button>
-									<a href="#" className="btn btn-link text-start w-25 m-0 p-0" tabIndex="-1" role="button">Back to Contacts</a>
 								</div>
 							</div>
-					</div>
-					</div>
+							<div className="mb-3">
+								<div className="mb-3 row">
+									<label htmlFor="inputEmail" className="form-label">Email</label>
+								<div className="col-sm-10">
+									<input type="email" className="form-control" id="inputEmail" placeholder="yolo@nobodyisme.com"/>
+								</div>
+							</div>
+							</div>
+							<div className="mb-3">
+								<div className="mb-3 row">
+									<label htmlFor="inputPhone" className="form-label">Phone</label>
+								<div className="col-sm-10">
+									<input type="phone" className="form-control" id="inputPhone" placeholder="+00 000-000-0000"/>
+								</div>
+								</div>
+							</div>
+							<div className="mb-3">
+								<div className="mb-3 row">
+									<label htmlFor="inputAddress" className="form-label">Address</label>
+								<div className="col-sm-10">
+									<input type="address" className="form-control" id="inputAddress" placeholder="Night City"/>
+								</div>
+								</div>
+							</div>
+							<div className="d-grid gap-3 py-4">
+								<button className="btn btn-primary" type="button">Done M8</button>
+								<a href="#" className="btn btn-link text-start w-25 m-0 p-0" tabIndex="-1" role="button">Back to Contacts</a>
+							</div>
+						</div>
+				</div>
 				</div>
 			</div>
+		</div>
+		{/* Modal 2 Add Contact*/}
+		{/* Modal 3 add Contact*/}
+		<div className="modal fade" id="addContact" tabIndex="-1">
+			<div className="modal-dialog">
+				<div className="modal-content">
+					<div className="modal-header">
+						<h1 className="modal-title fs-5" id="addContactLabel">Time to Configure this bad boy</h1>
+						<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div className="modal-body">
+					{/* body */}
+						<div className="container-fluid">
+							<h1 className="fs-1 text-center py-4">Add Contact</h1>
+							<div className="mb-3">
+								<div className="mb-3 row">
+									<label htmlFor="inputName" className="form-label">Full Name</label>
+								<div className="col-sm-10">
+									<input className="form-control" id="inputName" placeholder="Juanito"/>
+								</div>
+								</div>
+							</div>
+							<div className="mb-3">
+								<div className="mb-3 row">
+									<label htmlFor="inputEmail" className="form-label">Email</label>
+								<div className="col-sm-10">
+									<input type="email" className="form-control" id="inputEmail" placeholder="yolo@nobodyisme.com"/>
+								</div>
+							</div>
+							</div>
+							<div className="mb-3">
+								<div className="mb-3 row">
+									<label htmlFor="inputPhone" className="form-label">Phone</label>
+								<div className="col-sm-10">
+									<input type="phone" className="form-control" id="inputPhone" placeholder="+00 000-000-0000"/>
+								</div>
+								</div>
+							</div>
+							<div className="mb-3">
+								<div className="mb-3 row">
+									<label htmlFor="inputAddress" className="form-label">Address</label>
+								<div className="col-sm-10">
+									<input type="address" className="form-control" id="inputAddress" placeholder="Night City"/>
+								</div>
+								</div>
+							</div>
+							<div className="d-grid gap-3 py-4">
+								<button className="btn btn-primary" type="button">Done M8</button>
+								<a href="#" className="btn btn-link text-start w-25 m-0 p-0" tabIndex="-1" role="button">Back to Contacts</a>
+							</div>
+						</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		{/* Modal 3 edit Contact*/}
+
 		</>
 	);
 };

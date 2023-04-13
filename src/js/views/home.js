@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "../../styles/home.css";
 import {ContactCard} from "../component/ContactCard.jsx";
 import { Context } from "../store/appContext.js";
-import rigoImage from "/workspace/Contactlist-webapp/src/img/rigo-baby.jpg"
+import rigoImage from "/workspaces/Jtorres-ContactList/src/img/rigo-baby.jpg"
 
 export const Home = () => {
 	const {store, actions} = useContext(Context)
@@ -16,8 +16,8 @@ export const Home = () => {
           name={contacts.name}
           address={contacts.address}
           email={contacts.email}
-          telephone={contacts.telephone}
-          img={rigoImage}
+          phone={contacts.phone}
+          img={"https://fastly.picsum.photos/id/758/200/200.jpg?hmac=uNGrAzLKg8Jmc7G9XT1alpHw2bbW64ysv9Sh3PnjCPA"}
           key={index}
         />
       ))}

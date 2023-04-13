@@ -5,10 +5,10 @@ import { Modal } from "./Modal";
 export const ContactCard = props => {
 	const [state, setState] = useState({
 		//initialize state here
+
 	});
 	return (
-        <div className="container">
-            
+        <div className="container">           
             <div className="card w-100 mb-3">
                 <div className="card-body d-flex border border-primary">
                     <div>
@@ -30,7 +30,7 @@ export const ContactCard = props => {
                                 </button>
                             </i>
                             <i type="button" className="card-text text-secondary">
-                                <button type="button" className="btn fa-solid fa-phone" data-bs-toggle="modal" data-bs-target="#addContact">
+                                <button type="button" className="btn fa-solid fa-phone" data-bs-toggle="modal" data-bs-target="#editContact">
                                 </button>
                             </i>
                         </div>
@@ -54,10 +54,9 @@ ContactCard.propTypes = {
 	onDelete: PropTypes.func,
 	name: PropTypes.string,
 	email: PropTypes.string,
-	phone: PropTypes.string,
+	telephone: PropTypes.string,
 	img: PropTypes.string,
 	address: PropTypes.string,
-	key: PropTypes.string,
 };
 
 /**

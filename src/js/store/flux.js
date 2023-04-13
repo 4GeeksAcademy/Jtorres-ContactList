@@ -1,4 +1,4 @@
-import rigoImage from "/workspace/Contactlist-webapp/src/img/rigo-baby.jpg"
+import rigoImage from "/workspaces/Jtorres-ContactList/src/img/rigo-baby.jpg"
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
