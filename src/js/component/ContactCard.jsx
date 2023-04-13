@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Modal } from "./Modal";
+import { Context } from "../store/appContext.js";
 
 export const ContactCard = props => {
 	const [state, setState] = useState({
 		//initialize state here
 
 	});
+
+	const {store, actions} = useContext(Context)
 	return (
         <div className="container">           
             <div className="card w-100 mb-3">
@@ -24,27 +27,23 @@ export const ContactCard = props => {
                             <i className="fa-solid fa-phone card-text text-secondary">{props.email}</i>
                         </div>
 						{/* Buttons */}
+                        {/* Buttons */}
                         <div className="d-flex align-self-start float-end">
 							<i className="f p-2 card-text text-secondary">
-                                <button type="button" className="btn fa-solid fa-phone" data-bs-toggle="modal" data-bs-target="#deleteContact">
+                                <button type="button" className="btn btn-primary"
+								onClick={() => actions.delContact(props.index)}> Borrar
                                 </button>
                             </i>
-                            <i type="button" className="card-text text-secondary">
-                                <button type="button" className="btn fa-solid fa-phone" data-bs-toggle="modal" data-bs-target="#editContact">
-                                </button>
-                            </i>
-                        </div>
 						{/* Buttons */}
                     </div>
                 </div>
             </div>
             <Modal />
-        </div>
-        // Modal
+        	</div>
+		</div>
         
-        )
-};
-
+        );
+	}
 /**
  * Define the data-types for
  * your component's properties
@@ -96,7 +95,7 @@ export default ContactCard;
 	// 					data-toggle="tooltip"
 	// 					title=""
 	// 					data-original-title="(870) 288-4149"
-	// 				/>
+	// 				/&gt;
 	// 				<span className="text-muted small">{props.phone}</span>
 	// 				<br />
 	// 				<span
@@ -104,7 +103,7 @@ export default ContactCard;
 	// 					data-toggle="tooltip"
 	// 					data-original-title=""
 	// 					title=""
-	// 				/>
+	// 				/&gt;
 	// 				<span className="text-muted small text-truncate">{props.email}</span>
 	// 			</div>
 	// 		</div>

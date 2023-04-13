@@ -20,11 +20,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// actualizar el nuevo array
 				setStore({contacts:newContacts})
 			},
-			delContact:(index)=>{
-				let newContacts =[...store.contacts,contact]
-				newContacts.splice(index,1)
-				setStore({cotnacts:newContacts})
-			},
+			delContact: (index) => {
+                let store = getStore()
+                //let newContacts = [...store.contacts, contact]
+                let newContacts = store.contacts
+                newContacts.splice(index, 1)
+                setStore({
+                    contacts: newContacts
+                })
+            }
 			// changeColor: (index, color) => {
 
 			// 	const store = getStore();
