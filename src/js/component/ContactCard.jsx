@@ -4,10 +4,8 @@ import { Modal } from "./Modal";
 import { Context } from "../store/appContext.js";
 
 export const ContactCard = props => {
-	const [state, setState] = useState({
-		//initialize state here
-
-	});
+	const [myIndex, setMyIndex] = useState(props.index);
+	console.log(myIndex)
 
 	const {store, actions} = useContext(Context)
 	return (
@@ -30,8 +28,13 @@ export const ContactCard = props => {
                         {/* Buttons */}
                         <div className="d-flex align-self-start float-end">
 							<i className="f p-2 card-text text-secondary">
-                                <button type="button" className="btn btn-primary"
-								onClick={() => actions.delContact(props.index)}> Borrar
+                                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteContact" > 
+									Delete
+                                </button>
+                            </i>
+							<i className="f p-2 card-text text-secondary">
+                                <button type="button" className="btn btn-info" data-bs-toggle="modal" data-bs-target="#editContact"> 
+									Edit
                                 </button>
                             </i>
 						{/* Buttons */}
@@ -66,6 +69,8 @@ ContactCard.defaultProps = {
 	onDelete: null
 };
 export default ContactCard;
+
+
 
 
 

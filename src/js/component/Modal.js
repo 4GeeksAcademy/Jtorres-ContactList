@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Context } from "../store/appContext.js";
 
 export const Modal = props => {
 	const [state, setState] = useState({
 		//initialize state here
 	});
+
+	const {store, actions} = useContext(Context)
 	return (
 		<>
 			{/* Modal 1 Delete Contact*/}
@@ -13,7 +16,9 @@ export const Modal = props => {
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h1 className="modal-title fs-5" id="deleteContactLabel">Hmm... not too fast!</h1>
+                        <h1 className="modal-title fs-5" id="deleteContactLabel">
+							Hmm... not too fast!
+						</h1>
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
@@ -21,12 +26,12 @@ export const Modal = props => {
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Nah, dont wanna redo</button>
-                        <button type="button" onClick={() => props.onDelete()} className="btn btn-primary">Yus, i'm fine</button>
+                        <button type="button" onClick={() => actions.delContact(props.index)} className="btn btn-primary">Yus, i'm fine</button>
                     </div>
                 </div>
             </div>
         </div>
-		{/* Modal 2 add Contact*/}
+		{/* Modal 2 edit Contact*/}
 		<div className="modal fade" id="editContact" tabIndex="-1">
 			<div className="modal-dialog">
 				<div className="modal-content">
@@ -40,9 +45,9 @@ export const Modal = props => {
 							<h1 className="fs-1 text-center py-4">Edit Contact</h1>
 							<div className="mb-3">
 								<div className="mb-3 row">
-									<label htmlFor="inputName" className="form-label">Full Name</label>
+									<label htmlFor="inputName" className="form-label" >Full Name</label>
 								<div className="col-sm-10">
-									<input className="form-control" id="inputName" placeholder="Juanito"/>
+									<input className="form-control" id="{props.name}" value={name} onChange={(e)=>setName(e.target.value)} placeholder="Juanito"/>
 								</div>
 								</div>
 							</div>
@@ -50,7 +55,7 @@ export const Modal = props => {
 								<div className="mb-3 row">
 									<label htmlFor="inputEmail" className="form-label">Email</label>
 								<div className="col-sm-10">
-									<input type="email" className="form-control" id="inputEmail" placeholder="yolo@nobodyisme.com"/>
+									<input type="email" className="form-control" id="{props.email}" onChange={(e)=>setEmail(e.target.value)} placeholder="yolo@nobodyisme.com"/>
 								</div>
 							</div>
 							</div>
@@ -58,7 +63,7 @@ export const Modal = props => {
 								<div className="mb-3 row">
 									<label htmlFor="inputPhone" className="form-label">Phone</label>
 								<div className="col-sm-10">
-									<input type="phone" className="form-control" id="inputPhone" placeholder="+00 000-000-0000"/>
+									<input type="phone" className="form-control" id="{props.telephone}" onChange={(e)=>setTelephone(e.target.value)} placeholder="+00 000-000-0000"/>
 								</div>
 								</div>
 							</div>
@@ -66,20 +71,20 @@ export const Modal = props => {
 								<div className="mb-3 row">
 									<label htmlFor="inputAddress" className="form-label">Address</label>
 								<div className="col-sm-10">
-									<input type="address" className="form-control" id="inputAddress" placeholder="Night City"/>
+									<input type="address" className="form-control" id="{props.address}" onChange={(e)=>setAddress(e.target.value)} placeholder="Night City"/>
 								</div>
 								</div>
 							</div>
 							<div className="d-grid gap-3 py-4">
-								<button className="btn btn-primary" type="button">Done M8</button>
-								<a href="#" className="btn btn-link text-start w-25 m-0 p-0" tabIndex="-1" role="button">Back to Contacts</a>
+								<button className="btn btn-primary" type="button" onClick={() => actions.editContact(props.index,{name: name, address: address, email: email, telephone: telephone})} data-bs-dismiss="modal">Done M8</button>
+								<a href="#" className="btn btn-link text-start w-25 m-0 p-0" tabIndex="-1" role="button" data-bs-dismiss="modal">Back to Contacts</a>
 							</div>
 						</div>
 				</div>
 				</div>
 			</div>
 		</div>
-		{/* Modal 2 Add Contact*/}
+		{/* Modal 2 edit Contact*/}
 		{/* Modal 3 add Contact*/}
 		<div className="modal fade" id="addContact" tabIndex="-1">
 			<div className="modal-dialog">
@@ -126,14 +131,14 @@ export const Modal = props => {
 							</div>
 							<div className="d-grid gap-3 py-4">
 								<button className="btn btn-primary" type="button">Done M8</button>
-								<a href="#" className="btn btn-link text-start w-25 m-0 p-0" tabIndex="-1" role="button">Back to Contacts</a>
+								<a href="#" className="btn btn-link text-start w-25 m-0 p-0" tabIndex="-1" role="button" data-bs-dismiss="modal">Back to Contacts</a>
 							</div>
 						</div>
 				</div>
 				</div>
 			</div>
 		</div>
-		{/* Modal 3 edit Contact*/}
+		{/* Modal 3 add Contact*/}
 
 		</>
 	);
