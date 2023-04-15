@@ -12,7 +12,7 @@ export const Navbar = () => {
 				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
 			</Link>
 			<div className="ml-auto">
-					<button onClick={()=>actions.addContact({ name: "Juan", address: "colombia", email: "juanfeguto2@gmail.com", phone: "+573013182183", img: { rigoImage } }
+					<button onClick={()=>actions.addContact({ contactName: "Juan", address: "colombia", email: "juanfeguto2@gmail.com", phone: "+573013182183", img: { rigoImage } }
 					)} className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addContact">Add New Contact</button>
 			</div>
 		</nav>

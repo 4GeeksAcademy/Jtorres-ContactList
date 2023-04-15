@@ -7,12 +7,36 @@ export const Modal = props => {
 	const [state, setState] = useState({
 		//initialize state here
 	});
+	const [myIndex, setMyIndex] = useState(props.index);
 
 	const {store, actions} = useContext(Context)
+	const[contactName, setName] = useState(store.contacts[props.index]?.contactName||"")
+	const[email, setEmail] = useState(store.contacts[props.index]?.email||"")
+	const[telephone, setTelephone] = useState(store.contacts[props.index]?.telephone||"")
+	const[address, setAddress] = useState(store.contacts[props.index]?.address||"")
+	const[img, setIMG] = useState(store.contacts[props.index]?.img||"")
+	function guardar(){
+		let newContact={
+		contactName: contactName, 
+		email:email, 
+		telephone: telephone, 
+		address: address
+		}
+		if (props.index == -1) {
+		// Crear nuevo contacto
+		actions.addContact (newContact)
+		} else if (props.index >= 0) {
+		// Editar contacto
+		actions .editContact (newContact, props. index)
+		} else {
+		// Indice invalido
+		}
+	}
+	
 	return (
 		<>
 			{/* Modal 1 Delete Contact*/}
-			<div className="modal fade" id="deleteContact" tabIndex="-1">
+			<div className="modal fade" id={"deleteContact-"+props.index} tabIndex="-1">
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
@@ -32,7 +56,7 @@ export const Modal = props => {
             </div>
         </div>
 		{/* Modal 2 edit Contact*/}
-		<div className="modal fade" id="editContact" tabIndex="-1">
+		<div className="modal fade" id={"editContact-"+props.index} tabIndex="-1">
 			<div className="modal-dialog">
 				<div className="modal-content">
 					<div className="modal-header">
@@ -45,38 +69,38 @@ export const Modal = props => {
 							<h1 className="fs-1 text-center py-4">Edit Contact</h1>
 							<div className="mb-3">
 								<div className="mb-3 row">
-									<label htmlFor="inputName" className="form-label" >Full Name</label>
+									<label htmlFor="inputName" className="form-label" >{props.contactName}</label>
 								<div className="col-sm-10">
-									<input className="form-control" id="{props.name}" value={name} onChange={(e)=>setName(e.target.value)} placeholder="Juanito"/>
+									<input type="name" className="form-control" id="{props.contactName}" value={contactName} onChange={(e)=>setName(e.target.value)} placeholder="Juanito"/>
 								</div>
 								</div>
 							</div>
 							<div className="mb-3">
 								<div className="mb-3 row">
-									<label htmlFor="inputEmail" className="form-label">Email</label>
+									<label htmlFor="inputEmail" className="form-label">{props.email}</label>
 								<div className="col-sm-10">
-									<input type="email" className="form-control" id="{props.email}" onChange={(e)=>setEmail(e.target.value)} placeholder="yolo@nobodyisme.com"/>
+									<input type="email" className="form-control" id="{props.email}" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="yolo@nobodyisme.com"/>
 								</div>
 							</div>
 							</div>
 							<div className="mb-3">
 								<div className="mb-3 row">
-									<label htmlFor="inputPhone" className="form-label">Phone</label>
+									<label htmlFor="inputPhone" className="form-label">{props.telephone}</label>
 								<div className="col-sm-10">
-									<input type="phone" className="form-control" id="{props.telephone}" onChange={(e)=>setTelephone(e.target.value)} placeholder="+00 000-000-0000"/>
+									<input type="phone" className="form-control" id="{props.telephone}" value={telephone} onChange={(e)=>setTelephone(e.target.value)} placeholder="+00 000-000-0000"/>
 								</div>
 								</div>
 							</div>
 							<div className="mb-3">
 								<div className="mb-3 row">
-									<label htmlFor="inputAddress" className="form-label">Address</label>
+									<label htmlFor="inputAddress" className="form-label">{props.address}</label>
 								<div className="col-sm-10">
-									<input type="address" className="form-control" id="{props.address}" onChange={(e)=>setAddress(e.target.value)} placeholder="Night City"/>
+									<input type="address" className="form-control" id="{props.address}" value={address} onChange={(e)=>setAddress(e.target.value)} placeholder="Night City"/>
 								</div>
 								</div>
 							</div>
 							<div className="d-grid gap-3 py-4">
-								<button className="btn btn-primary" type="button" onClick={() => actions.editContact(props.index,{name: name, address: address, email: email, telephone: telephone})} data-bs-dismiss="modal">Done M8</button>
+								<button className="btn btn-primary" type="button" onClick={guardar} data-bs-dismiss="modal">Done M8</button>
 								<a href="#" className="btn btn-link text-start w-25 m-0 p-0" tabIndex="-1" role="button" data-bs-dismiss="modal">Back to Contacts</a>
 							</div>
 						</div>
@@ -101,7 +125,7 @@ export const Modal = props => {
 								<div className="mb-3 row">
 									<label htmlFor="inputName" className="form-label">Full Name</label>
 								<div className="col-sm-10">
-									<input className="form-control" id="inputName" placeholder="Juanito"/>
+									<input className="form-control" id="inputName" placeholder="Juanito" onChange={(e)=>setName(e.target.value)}/>
 								</div>
 								</div>
 							</div>
@@ -109,7 +133,7 @@ export const Modal = props => {
 								<div className="mb-3 row">
 									<label htmlFor="inputEmail" className="form-label">Email</label>
 								<div className="col-sm-10">
-									<input type="email" className="form-control" id="inputEmail" placeholder="yolo@nobodyisme.com"/>
+									<input type="email" className="form-control" id="inputEmail" onChange={(e)=>setEmail(e.target.value)} placeholder="yolo@nobodyisme.com"/>
 								</div>
 							</div>
 							</div>
@@ -117,20 +141,20 @@ export const Modal = props => {
 								<div className="mb-3 row">
 									<label htmlFor="inputPhone" className="form-label">Phone</label>
 								<div className="col-sm-10">
-									<input type="phone" className="form-control" id="inputPhone" placeholder="+00 000-000-0000"/>
+									<input type="phone" className="form-control" id="inputPhone" placeholder="+00 000-000-0000" onChange={(e)=>setTelephone(e.target.value)}/>
 								</div>
 								</div>
 							</div>
 							<div className="mb-3">
 								<div className="mb-3 row">
-									<label htmlFor="inputAddress" className="form-label">Address</label>
+									<label htmlFor="inputAddress" className="form-label" onChange={(e)=>setAddress(e.target.value)}>Address</label>
 								<div className="col-sm-10">
 									<input type="address" className="form-control" id="inputAddress" placeholder="Night City"/>
 								</div>
 								</div>
 							</div>
 							<div className="d-grid gap-3 py-4">
-								<button className="btn btn-primary" type="button">Done M8</button>
+								<button className="btn btn-primary" type="button" onClick ={guardar} data-bs-dismiss="modal">Done M8</button>
 								<a href="#" className="btn btn-link text-start w-25 m-0 p-0" tabIndex="-1" role="button" data-bs-dismiss="modal">Back to Contacts</a>
 							</div>
 						</div>
@@ -154,6 +178,7 @@ Modal.propTypes = {
 	key: PropTypes.func,
 	onDelete: PropTypes.func
 };
+
 
 /**
  * Define the default values for
