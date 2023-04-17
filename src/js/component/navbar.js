@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 
 
-export const Navbar = () => {
+export const Navbar = props => {
 	const {actions}=useContext(Context)
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
@@ -14,21 +14,13 @@ export const Navbar = () => {
 				<span className="navbar-brand mb-0 h1">4Geeks</span>
 			</Link>
 			<div className="ml-auto">
-					<button className="btn btn-primary" data-bs-toggle="modal" data-bs-target={"#addContact-"+props.index}>Add New Contact</button>
+					<button className="btn btn-primary" data-bs-toggle="modal" data-bs-target={"#addContact"}>Add New Contact</button>
 			</div>
 		</nav>
 	);
 };
 
 
-Navbar.propTypes = {
-	history: PropTypes.object,
-	onDelete: PropTypes.func,
-	contactName: PropTypes.string,
-	email: PropTypes.string,
-	telephone: PropTypes.string,
-	img: PropTypes.string,
-	address: PropTypes.string,
-};
+
 
 export default Navbar;

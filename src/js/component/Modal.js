@@ -18,7 +18,7 @@ export const Modal = props => {
 	function guardar(){
 		let newContact={
 		contactName: contactName, 
-		email:email, 
+		email: email, 
 		telephone: telephone, 
 		address: address
 		}
@@ -110,7 +110,7 @@ export const Modal = props => {
 		</div>
 		{/* Modal 2 edit Contact*/}
 		{/* Modal 3 add Contact*/}
-		<div className="modal fade" id={"addContact-"+props.index} tabIndex="-1">
+		<div className="modal fade" id={"addContact"} tabIndex="-1">
 			<div className="modal-dialog">
 				<div className="modal-content">
 					<div className="modal-header">
@@ -125,7 +125,7 @@ export const Modal = props => {
 								<div className="mb-3 row">
 									<label htmlFor="inputName" className="form-label">Full Name</label>
 								<div className="col-sm-10">
-									<input className="form-control" id="inputName" placeholder="Juanito" onChange={(e)=>setName(e.target.value)}/>
+									<input className="form-control" id="{props.contactName}" placeholder="Juanito" value={contactName} onChange={(e)=>setName(e.target.value)}/>
 								</div>
 								</div>
 							</div>
@@ -133,7 +133,7 @@ export const Modal = props => {
 								<div className="mb-3 row">
 									<label htmlFor="inputEmail" className="form-label">Email</label>
 								<div className="col-sm-10">
-									<input type="email" className="form-control" id="inputEmail" onChange={(e)=>setEmail(e.target.value)} placeholder="yolo@nobodyisme.com"/>
+									<input type="email" className="form-control" id="{props.email}" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="yolo@nobodyisme.com"/>
 								</div>
 							</div>
 							</div>
@@ -141,15 +141,15 @@ export const Modal = props => {
 								<div className="mb-3 row">
 									<label htmlFor="inputPhone" className="form-label">Phone</label>
 								<div className="col-sm-10">
-									<input type="phone" className="form-control" id="inputPhone" placeholder="+00 000-000-0000" onChange={(e)=>setTelephone(e.target.value)}/>
+									<input type="phone" className="form-control" id="{props.telephone}" value={telephone} placeholder="+00 000-000-0000" onChange={(e)=>setTelephone(e.target.value)}/>
 								</div>
 								</div>
 							</div>
 							<div className="mb-3">
 								<div className="mb-3 row">
-									<label htmlFor="inputAddress" className="form-label" onChange={(e)=>setAddress(e.target.value)}>Address</label>
+									<label htmlFor="inputAddress" className="form-label" value={address} onChange={(e)=>setAddress(e.target.value)}>Address</label>
 								<div className="col-sm-10">
-									<input type="address" className="form-control" id="inputAddress" placeholder="Night City"/>
+									<input type="address" className="form-control" id="{props.address}" placeholder="Night City"/>
 								</div>
 								</div>
 							</div>
