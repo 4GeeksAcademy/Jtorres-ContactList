@@ -110,7 +110,7 @@ export const Modal = props => {
 		</div>
 		{/* Modal 2 edit Contact*/}
 		{/* Modal 3 add Contact*/}
-		<div className="modal fade" id="addContact" tabIndex="-1">
+		<div className="modal fade" id={"addContact-"+props.index} tabIndex="-1">
 			<div className="modal-dialog">
 				<div className="modal-content">
 					<div className="modal-header">
