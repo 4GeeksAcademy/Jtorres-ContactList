@@ -12,6 +12,9 @@ export const Home = () => {
 	return(
 		<div className="d-flex flex-column justify-center mt-5">
 			<div className="list-group contact-list">
+      <Modal 
+          index={-1}
+        />
       {contacts.map((contacts, index) => (
         <div key={index}>
         <ContactCard

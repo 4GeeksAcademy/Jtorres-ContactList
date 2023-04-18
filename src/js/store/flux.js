@@ -18,6 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let newContacts = [...store.contacts,contact]
 				// actualizar el nuevo array
 				setStore({contacts:newContacts})
+				console.log(newContacts);
 			},
 			delContact: (index) => {
                 let store = getStore()
