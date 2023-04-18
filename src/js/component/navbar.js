@@ -20,7 +20,7 @@ export const Navbar = props => {
 				</div>
 			</nav>
 			<Modal 
-			index={-1}
+			index={props.index}
 			/>
 		</>
 	);

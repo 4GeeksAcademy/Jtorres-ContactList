@@ -1,6 +1,8 @@
-import rigoImage from "/workspaces/Jtorres-ContactList/src/img/rigo-baby.jpg"
+const apiUrl=process.env.API_URL
+const agendaSlug=process.env.AGENDA_SLUG
 
 const getState = ({ getStore, getActions, setStore }) => {
+
 	return {
 		store: {
 			contacts: [
@@ -12,6 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],	},
 		actions: {
 			addContact:(contact)=>{
+				let response = await response.json()
 				// version actual de store
 				let store = getStore()
 				// contactos actuales + nuevo contacto
@@ -36,8 +39,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 				newContacts [index] = obj;
 				setStore({ ...store, contacts: newContacts });
 			},
+			getAgenda:()=>{
+				fetch(apiUrl+"/agenda/"+agendaSlug)
+				.then(response=>{
+					if(response.ok){
+						return response.json
+					}
+					else{
+							console.log(response.status+": "+response.json)
+						}
+				})
+				.then(data=>{
+					console.log(data)
+					setStore({contacts:data})
+				})
+					
+				.catch(error=>{
+					console.error(error)
+				})
+				console.log("iniciada la peticion")
+			}
 		}
 	}
 }
+
 
 export default getState;

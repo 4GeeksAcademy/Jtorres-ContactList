@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "../../styles/home.css";
 import {ContactCard} from "../component/ContactCard.jsx";
 import { Context } from "../store/appContext.js";
@@ -8,6 +8,9 @@ import { Modal } from "../component/Modal";
 export const Home = () => {
 	const {store, actions} = useContext(Context)
 	const {contacts} = store
+  useEffect(()=>{
+    actions.getAgenda
+  })
 
 	return(
 		<div className="d-flex flex-column justify-center mt-5">

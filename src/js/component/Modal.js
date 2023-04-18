@@ -14,7 +14,7 @@ export const Modal = props => {
 	const[email, setEmail] = useState(store.contacts[props.index]?.email||"")
 	const[telephone, setTelephone] = useState(store.contacts[props.index]?.telephone||"")
 	const[address, setAddress] = useState(store.contacts[props.index]?.address||"")
-	const[img, setIMG] = useState(store.contacts[props.index]?.img||"")
+	const[img, setImg] = useState(store.contacts[props.index]?.img||"")
 	function guardar(){
 		let newContact={
 		contactName: contactName, 
@@ -24,13 +24,14 @@ export const Modal = props => {
 		}
 		if (props.index == -1) {
 		// Crear nuevo contacto
-		actions.addContact (newContact)
+		actions.addContact(newContact)
 		} else if (props.index >= 0) {
 		// Editar contacto
-		actions .editContact (newContact, props. index)
-		} else {
-		// Indice invalido
-		}
+		actions.editContact(newContact, props.index)
+		} 
+		// else {
+		//Indice invalido
+		// }
 		console.log(props.index)
 	}
 	
@@ -51,7 +52,7 @@ export const Modal = props => {
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Nah, dont wanna redo</button>
-                        <button type="button" onClick={() => actions.delContact(props.index)} className="btn btn-primary">Yus, i'm fine</button>
+                        <button type="button" onClick={() => actions.delContact(props.index)} data-bs-dismiss="modal" className="btn btn-primary">Yus, i'm fine</button>
                     </div>
                 </div>
             </div>
