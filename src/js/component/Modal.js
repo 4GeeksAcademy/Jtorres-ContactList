@@ -10,7 +10,7 @@ export const Modal = props => {
 	const [myIndex, setMyIndex] = useState(props.index);
 
 	const {store, actions} = useContext(Context)
-	const[contactName, setName] = useState(store.contacts[props.index]?.contactName||"")
+	const[contactName, setContactName] = useState(store.contacts[props.index]?.contactName||"")
 	const[email, setEmail] = useState(store.contacts[props.index]?.email||"")
 	const[telephone, setTelephone] = useState(store.contacts[props.index]?.telephone||"")
 	const[address, setAddress] = useState(store.contacts[props.index]?.address||"")
@@ -27,7 +27,12 @@ export const Modal = props => {
 		actions.addContact(newContact)
 		} else if (props.index >= 0) {
 		// Editar contacto
-		actions.editContact(newContact, props.index)
+		// actions.editContact(newContact, props.index)
+		let editContact=store.contacts.find(contacts.id==props.index)
+		setAddress(editContact.address)
+		setTelephone(editContact.telephone)
+		setEmail(editContact.email)
+		setContactName(editContact.contactName)
 		} 
 		// else {
 		//Indice invalido

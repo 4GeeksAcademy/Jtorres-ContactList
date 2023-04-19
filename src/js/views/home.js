@@ -10,7 +10,7 @@ export const Home = () => {
 	const {contacts} = store
   useEffect(()=>{
     actions.getAgenda
-  })
+  },[])
 
 	return(
 		<div className="d-flex flex-column justify-center mt-5">
@@ -18,7 +18,7 @@ export const Home = () => {
       <Modal 
           index={-1}
         />
-      {contacts.map((contacts, index) => (
+      {contacts?.map((contacts, index) => (
         <div key={index}>
         <ContactCard
           contactName={contacts.contactName}
@@ -26,13 +26,18 @@ export const Home = () => {
           email={contacts.email}
           phone={contacts.telephone}
           img="https://fastly.picsum.photos/id/758/200/200.jpg?hmac=uNGrAzLKg8Jmc7G9XT1alpHw2bbW64ysv9Sh3PnjCPA"
-          index={index}
+          index={contacts.id}
         />
         <Modal 
-          index={index}
+          contactName={contacts.contactName}
+          address={contacts.address}
+          email={contacts.email}
+          phone={contacts.telephone}
+          img="https://fastly.picsum.photos/id/758/200/200.jpg?hmac=uNGrAzLKg8Jmc7G9XT1alpHw2bbW64ysv9Sh3PnjCPA"
+          index={contacts.id}
         />
         </div>
-      ))}
+      ))||"Cargando contactos..."}
     </div>
 		</div>
 		)

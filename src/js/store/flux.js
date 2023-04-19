@@ -5,13 +5,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 	return {
 		store: {
-			contacts: [
-				{ contactName: "Juan", address: "colombia", email: "juanfeguto2@gmail.com", telephone: "+573013182183"  },
-				{ contactName: "Mauro", address: "colombia", email: "juanfeguto2@gmail.com", telephone: "+573013182183" },
-				{ contactName: "Alexis", address: "colombia", email: "juanfeguto2@gmail.com", telephone: "+573013182183"},
-				{ contactName: "Daniel", address: "colombia", email: "juanfeguto2@gmail.com", telephone: "+573013182183"},
-				{ contactName: "Arnaldo", address: "colombia", email: "juanfeguto2@gmail.com", telephone: "+573013182183"}
-			],	},
+			contacts: [],
+		},
 		actions: {
 			addContact:(contact)=>{
 				let response = await response.json()
@@ -43,11 +38,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(apiUrl+"/agenda/"+agendaSlug)
 				.then(response=>{
 					if(response.ok){
-						return response.json
+						return response.json()
 					}
 					else{
-							console.log(response.status+": "+response.json)
-						}
+						console.log(response.status+": "+response.statusText)
+					}
 				})
 				.then(data=>{
 					console.log(data)
