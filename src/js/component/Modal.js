@@ -17,7 +17,7 @@ export const Modal = props => {
 	const[img, setImg] = useState(store.contacts[props.index]?.img||"")
 	function guardar(){
 		let newContact={
-		contactName: contactName, 
+		full_name: contactName, 
 		email: email, 
 		telephone: telephone, 
 		address: address
@@ -130,9 +130,9 @@ export const Modal = props => {
 							<h1 className="fs-1 text-center py-4">Add Contact</h1>
 							<div className="mb-3">
 								<div className="mb-3 row">
-									<label htmlFor="inputName" className="form-label">Full Name</label>
+									<label htmlFor="inputName" className="form-label">Full Name</label>	
 								<div className="col-sm-10">
-									<input className="form-control" id="{props.contactName}" placeholder="Juanito" value={contactName} onChange={(e)=>setName(e.target.value)}/>
+									<input className="form-control" id="{props.contactName}" placeholder="Juanito" value={contactName} onChange={(e)=>setContactName(e.target.value)}/>
 								</div>
 								</div>
 							</div>
