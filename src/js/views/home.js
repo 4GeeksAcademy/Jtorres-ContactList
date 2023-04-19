@@ -20,18 +20,18 @@ export const Home = () => {
       {contacts?.map((contacts, index) => (
         <div key={index}>
         <ContactCard
-          contactName={contacts.contactName}
+          name={contacts.name}
           address={contacts.address}
           email={contacts.email}
-          phone={contacts.telephone}
+          phone={contacts.phone}
           img="https://fastly.picsum.photos/id/758/200/200.jpg?hmac=uNGrAzLKg8Jmc7G9XT1alpHw2bbW64ysv9Sh3PnjCPA"
           index={contacts.id}
         />
         <Modal 
-          contactName={contacts.contactName}
+          name={contacts.name}
           address={contacts.address}
           email={contacts.email}
-          phone={contacts.telephone}
+          phone={contacts.phone}
           img="https://fastly.picsum.photos/id/758/200/200.jpg?hmac=uNGrAzLKg8Jmc7G9XT1alpHw2bbW64ysv9Sh3PnjCPA"
           index={contacts.id}
         />

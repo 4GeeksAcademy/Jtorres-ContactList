@@ -11,7 +11,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				"agenda_slug": "LaReContraGenda",
 				"address":"Somewhere in japan",
 				"phone":"9898989898"
-			}],
+			},
+			{
+				"full_name": "Chainsaw Juan",
+				"email": "juan@ya.com",
+				"agenda_slug": "LaReContraGenda",
+				"address":"Somewhere in japan",
+				"phone":"juan"
+			}
+		],
 		},
 		actions: {
 			addContact:async (contact)=>{

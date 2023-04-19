@@ -10,16 +10,16 @@ export const Modal = props => {
 	const [myIndex, setMyIndex] = useState(props.index);
 
 	const {store, actions} = useContext(Context)
-	const[contactName, setContactName] = useState(store.contacts[props.index]?.contactName||"")
+	const[full_name, setContactName] = useState(store.contacts[props.index]?.full_name||"")
 	const[email, setEmail] = useState(store.contacts[props.index]?.email||"")
-	const[telephone, setTelephone] = useState(store.contacts[props.index]?.telephone||"")
+	const[phone, setPhone] = useState(store.contacts[props.index]?.phone||"")
 	const[address, setAddress] = useState(store.contacts[props.index]?.address||"")
 	const[img, setImg] = useState(store.contacts[props.index]?.img||"")
 	function guardar(){
 		let newContact={
-		full_name: contactName, 
+		full_name: full_name, 
 		email: email, 
-		telephone: telephone, 
+		phone: phone, 
 		address: address
 		}
 		if (props.index == -1) {
@@ -30,9 +30,9 @@ export const Modal = props => {
 		// actions.editContact(newContact, props.index)
 		let editContact=store.contacts.find(contacts.id==props.index)
 		setAddress(editContact.address)
-		setTelephone(editContact.telephone)
+		setPhone(editContact.phone)
 		setEmail(editContact.email)
-		setContactName(editContact.contactName)
+		setContactName(editContact.full_name)
 		} 
 		// else {
 		//Indice invalido
@@ -76,9 +76,9 @@ export const Modal = props => {
 							<h1 className="fs-1 text-center py-4">Edit Contact</h1>
 							<div className="mb-3">
 								<div className="mb-3 row">
-									<label htmlFor="inputName" className="form-label" >{props.contactName}</label>
+									<label htmlFor="inputName" className="form-label" >{props.full_name}</label>
 								<div className="col-sm-10">
-									<input type="name" className="form-control" id="{props.contactName}" value={contactName} onChange={(e)=>setName(e.target.value)} placeholder="Juanito"/>
+									<input type="name" className="form-control" id="{props.full_name}" value={full_name} onChange={(e)=>setName(e.target.value)} placeholder="Juanito"/>
 								</div>
 								</div>
 							</div>
@@ -92,9 +92,9 @@ export const Modal = props => {
 							</div>
 							<div className="mb-3">
 								<div className="mb-3 row">
-									<label htmlFor="inputPhone" className="form-label">{props.telephone}</label>
+									<label htmlFor="inputPhone" className="form-label">{props.phone}</label>
 								<div className="col-sm-10">
-									<input type="phone" className="form-control" id="{props.telephone}" value={telephone} onChange={(e)=>setTelephone(e.target.value)} placeholder="+00 000-000-0000"/>
+									<input type="phone" className="form-control" id="{props.phone}" value={phone} onChange={(e)=>setPhone(e.target.value)} placeholder="+00 000-000-0000"/>
 								</div>
 								</div>
 							</div>
@@ -132,7 +132,7 @@ export const Modal = props => {
 								<div className="mb-3 row">
 									<label htmlFor="inputName" className="form-label">Full Name</label>	
 								<div className="col-sm-10">
-									<input className="form-control" id="{props.contactName}" placeholder="Juanito" value={contactName} onChange={(e)=>setContactName(e.target.value)}/>
+									<input className="form-control" id="{props.full_name}" placeholder="Juanito" value={full_name} onChange={(e)=>setContactName(e.target.value)}/>
 								</div>
 								</div>
 							</div>
@@ -148,7 +148,7 @@ export const Modal = props => {
 								<div className="mb-3 row">
 									<label htmlFor="inputPhone" className="form-label">Phone</label>
 								<div className="col-sm-10">
-									<input type="phone" className="form-control" id="{props.telephone}" value={telephone} placeholder="+00 000-000-0000" onChange={(e)=>setTelephone(e.target.value)}/>
+									<input type="phone" className="form-control" id="{props.phone}" value={phone} placeholder="+00 000-000-0000" onChange={(e)=>setPhone(e.target.value)}/>
 								</div>
 								</div>
 							</div>

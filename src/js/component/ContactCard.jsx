@@ -19,7 +19,7 @@ export const ContactCard = props => {
                     </div>
                     <div className="card-body d-flex justify-content-between">
                         <div className="d-grid">
-                            <h5 className="card-title">{props.contactName}</h5>
+                            <h5 className="card-title">{props.full_name}</h5>
                             <i className="fa-solid fa-phone card-text text-secondary">{props.address}</i>
                             <i className="fa-solid fa-phone card-text text-secondary">{props.phone}</i>
                             <i className="fa-solid fa-phone card-text text-secondary">{props.email}</i>
@@ -54,7 +54,7 @@ export const ContactCard = props => {
 ContactCard.propTypes = {
 	history: PropTypes.object,
 	onDelete: PropTypes.func,
-	contactName: PropTypes.string,
+	full_name: PropTypes.string,
 	email: PropTypes.string,
 	telephone: PropTypes.string,
 	img: PropTypes.string,
@@ -79,7 +79,7 @@ export default ContactCard;
 	// 	<li className="list-group-item">
 	// 		<div className="row w-100">
 	// 			<div className="col-12 col-sm-6 col-md-3 px-0">
-	// 				<img src={props.img} alt={props.contactName} className="rounded-circle mx-auto d-block img-fluid" />
+	// 				<img src={props.img} alt={props.full_name} className="rounded-circle mx-auto d-block img-fluid" />
 	// 			</div>
 	// 			<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 	// 				<div className=" float-right">
@@ -90,7 +90,7 @@ export default ContactCard;
 	// 						<i className="fas fa-trash-alt" />
 	// 					</button>
 	// 				</div>
-	// 				<label className="contactName lead">{props.fullName}</label>
+	// 				<label className="full_name lead">{props.fullName}</label>
 	// 				<br />
 	// 				<i className="fas fa-map-marker-alt text-muted mr-3" />
 	// 				<span className="text-muted">{props.address}</span>
