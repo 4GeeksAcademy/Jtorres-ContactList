@@ -5,7 +5,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 	return {
 		store: {
-			contacts: [],
+			contacts: [{
+				"full_name": "Chainsaw Man",
+				"email": "aaa@ya.com",
+				"agenda_slug": "LaReContraGenda",
+				"address":"Somewhere in japan",
+				"phone":"9898989898"
+			}],
 		},
 		actions: {
 			addContact:async (contact)=>{
