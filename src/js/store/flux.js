@@ -5,25 +5,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 	return {
 		store: {
-			contacts: [{
-				"full_name": "Chainsaw Man",
-				"email": "aaa@ya.com",
-				"agenda_slug": "LaReContraGenda",
-				"address":"Somewhere in japan",
-				"phone":"9898989898"
-			},
-			{
-				"full_name": "Chainsaw Juan",
-				"email": "juan@ya.com",
-				"agenda_slug": "LaReContraGenda",
-				"address":"Somewhere in japan",
-				"phone":"juan"
-			}
-		],
+			contacts: [],
 		},
 		actions: {
 			addContact:async (contact)=>{
-				let response = await fetch(apiUrl+"/",{
+				let response = await fetch(apiUrl+"contact/"+contact.id,{
 					body:JSON.stringify(contact),
 					method:"POST",
 					headers:{
@@ -60,7 +46,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ ...store, contacts: newContacts });
 			},
 			getAgenda:()=>{
-				fetch(apiUrl+"/agenda/"+agendaSlug)
+				fetch(apiUrl+"contact/agenda/"+agendaSlug)
 				.then(response=>{
 					if(response.ok){
 						return response.json()

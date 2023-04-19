@@ -10,7 +10,7 @@ export const Modal = props => {
 	const [myIndex, setMyIndex] = useState(props.index);
 
 	const {store, actions} = useContext(Context)
-	const[full_name, setContactName] = useState(store.contacts[props.index]?.full_name||"")
+	const[full_name, setFull_name] = useState(store.contacts[props.index]?.full_name||"")
 	const[email, setEmail] = useState(store.contacts[props.index]?.email||"")
 	const[phone, setPhone] = useState(store.contacts[props.index]?.phone||"")
 	const[address, setAddress] = useState(store.contacts[props.index]?.address||"")
@@ -20,7 +20,8 @@ export const Modal = props => {
 		full_name: full_name, 
 		email: email, 
 		phone: phone, 
-		address: address
+		address: address,
+		index: myIndex
 		}
 		if (props.index == -1) {
 		// Crear nuevo contacto
@@ -32,7 +33,7 @@ export const Modal = props => {
 		setAddress(editContact.address)
 		setPhone(editContact.phone)
 		setEmail(editContact.email)
-		setContactName(editContact.full_name)
+		setFull_name(editContact.full_name)
 		} 
 		// else {
 		//Indice invalido
@@ -78,7 +79,7 @@ export const Modal = props => {
 								<div className="mb-3 row">
 									<label htmlFor="inputName" className="form-label" >{props.full_name}</label>
 								<div className="col-sm-10">
-									<input type="name" className="form-control" id="{props.full_name}" value={full_name} onChange={(e)=>setName(e.target.value)} placeholder="Juanito"/>
+									<input type="name" className="form-control" id="{props.full_name}" value={full_name} onChange={(e)=>setFull_name(e.target.value)} placeholder="Juanito"/>
 								</div>
 								</div>
 							</div>
@@ -132,7 +133,7 @@ export const Modal = props => {
 								<div className="mb-3 row">
 									<label htmlFor="inputName" className="form-label">Full Name</label>	
 								<div className="col-sm-10">
-									<input className="form-control" id="{props.full_name}" placeholder="Juanito" value={full_name} onChange={(e)=>setContactName(e.target.value)}/>
+									<input className="form-control" id="{props.full_name}" placeholder="Juanito" value={full_name} onChange={(e)=>setFull_name(e.target.value)}/>
 								</div>
 								</div>
 							</div>

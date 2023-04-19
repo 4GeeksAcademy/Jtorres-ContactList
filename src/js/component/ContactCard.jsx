@@ -59,6 +59,7 @@ ContactCard.propTypes = {
 	telephone: PropTypes.string,
 	img: PropTypes.string,
 	address: PropTypes.string,
+	index: PropTypes.number
 };
 
 /**
