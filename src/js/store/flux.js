@@ -8,12 +8,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 			contacts: [],
 		},
 		actions: {
-			addContact:(contact)=>{
-				let response = await response.json()
+			addContact:async (contact)=>{
+				let response = await fetch(apiUrl+"/",{
+					body:JSON.stringify(contact),
+					method:"POST",
+					headers:{
+						"Content-Type":"application/json"
+					}
+				})
+				if (!response.ok){
+					console.log(response.status + ": "+ response.statusText)
+					return 
+				}
+				let data=await response.json()
 				// version actual de store
 				let store = getStore()
 				// contactos actuales + nuevo contacto
-				let newContacts = [...store.contacts,contact]
+				let newContacts = [...store.contacts,{...contact, id:data.id}]
 				// actualizar el nuevo array
 				setStore({contacts:newContacts})
 				console.log(newContacts);

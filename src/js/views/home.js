@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import "../../styles/home.css";
 import {ContactCard} from "../component/ContactCard.jsx";
 import { Context } from "../store/appContext.js";
-import rigoImage from "/workspaces/Jtorres-ContactList/src/img/rigo-baby.jpg"
 import { Modal } from "../component/Modal";
 
 export const Home = () => {
