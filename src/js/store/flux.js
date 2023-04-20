@@ -5,27 +5,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 	return {
 		store: {
-			contacts: [{
-				"full_name": "Chainsaw Man",
-				"email": "aaa@ya.com",
-				"agenda_slug": "LaReContraGenda",
-				"address":"Somewhere in japan",
-				"phone":"9898989898",
-				"id": "3878"
-			},
-			{
-				"full_name": "Chainsaw Juan",
-				"email": "juan@ya.com",
-				"agenda_slug": "LaReContraGenda",
-				"address":"Somewhere in japan",
-				"phone":"juan",
-				"id": "3879"
-			}
+			contacts: [
+				{
+					"id": "3877",
+					"agenda_slug": "LaReContraGenda",
+					"full_name": "NarutoKun",
+					"email": "yametekudasai@wii.com",
+					"phone": "666666666",
+					"address": "avenda csm carrera de carros 120938",
+					"created_at": "2023-04-18 00:02:50"
+				},
+				{
+					"id": "3878",
+					"agenda_slug": "LaReContraGenda",
+					"full_name": "Chainsaw Man",
+					"email": "aaa@ya.com",
+					"phone": "9898989898",
+					"address": "Somewhere in japan",
+					"created_at": "2023-04-18 00:13:55"
+				}
 		],
 		},
 		actions: {
 			addContact:async (contact)=>{
-				let response = await fetch(apiUrl+"contact/",{
+				let response = await fetch("https://assets.breatheco.de/apis/fake/contact/agenda/LaReContraGenda",{
 					body:JSON.stringify(contact),
 					method:"POST",
 					headers:{
