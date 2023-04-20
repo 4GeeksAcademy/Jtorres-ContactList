@@ -41,7 +41,6 @@ export const ContactCard = props => {
                     </div>
                 </div>
             </div>
-            <Modal />
         	</div>
 		</div>
         
@@ -59,7 +58,8 @@ ContactCard.propTypes = {
 	telephone: PropTypes.string,
 	img: PropTypes.string,
 	address: PropTypes.string,
-	index: PropTypes.number
+	index: PropTypes.string,
+	id: PropTypes.string
 };
 
 /**

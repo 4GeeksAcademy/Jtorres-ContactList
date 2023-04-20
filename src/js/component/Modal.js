@@ -21,15 +21,14 @@ export const Modal = props => {
 		email: email, 
 		phone: phone, 
 		address: address,
-		index: myIndex
+		index: props.index
 		}
 		if (props.index == -1) {
 		// Crear nuevo contacto
-		actions.addContact(newContact)
+		actions.addContact(newContact, props.index)
 		} else if (props.index >= 0) {
 		// Editar contacto
-		// actions.editContact(newContact, props.index)
-		let editContact=store.contacts.find(contacts.id==props.index)
+		actions.editContact(newContact, props.index)
 		setAddress(editContact.address)
 		setPhone(editContact.phone)
 		setEmail(editContact.email)
@@ -77,33 +76,33 @@ export const Modal = props => {
 							<h1 className="fs-1 text-center py-4">Edit Contact</h1>
 							<div className="mb-3">
 								<div className="mb-3 row">
-									<label htmlFor="inputName" className="form-label" >{props.full_name}</label>
+									<label htmlFor="inputName" className="form-label" >Elmo wants to address you by your name</label>
 								<div className="col-sm-10">
-									<input type="name" className="form-control" id="{props.full_name}" value={full_name} onChange={(e)=>setFull_name(e.target.value)} placeholder="Juanito"/>
+									<input type="name" className="form-control" id="{props.full_name}" value={full_name} onChange={(e)=>setFull_name(e.target.value)} placeholder={props.full_name}/>
 								</div>
 								</div>
 							</div>
 							<div className="mb-3">
 								<div className="mb-3 row">
-									<label htmlFor="inputEmail" className="form-label">{props.email}</label>
+									<label htmlFor="inputEmail" className="form-label">Elmo wants to send you marketing emails</label>
 								<div className="col-sm-10">
-									<input type="email" className="form-control" id="{props.email}" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="yolo@nobodyisme.com"/>
+									<input type="email" className="form-control" id="{props.email}" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder={props.email}/>
 								</div>
 							</div>
 							</div>
 							<div className="mb-3">
 								<div className="mb-3 row">
-									<label htmlFor="inputPhone" className="form-label">{props.phone}</label>
+									<label htmlFor="inputPhone" className="form-label">Elmo wants to call you</label>
 								<div className="col-sm-10">
-									<input type="phone" className="form-control" id="{props.phone}" value={phone} onChange={(e)=>setPhone(e.target.value)} placeholder="+00 000-000-0000"/>
+									<input type="phone" className="form-control" id="{props.phone}" value={phone} onChange={(e)=>setPhone(e.target.value)} placeholder={props.phone}/>
 								</div>
 								</div>
 							</div>
 							<div className="mb-3">
 								<div className="mb-3 row">
-									<label htmlFor="inputAddress" className="form-label">{props.address}</label>
+									<label htmlFor="inputAddress" className="form-label">Elmo wants to know where you live</label>
 								<div className="col-sm-10">
-									<input type="address" className="form-control" id="{props.address}" value={address} onChange={(e)=>setAddress(e.target.value)} placeholder="Night City"/>
+									<input type="address" className="form-control" id="{props.address}" value={address} onChange={(e)=>setAddress(e.target.value)} placeholder={props.address}/>
 								</div>
 								</div>
 							</div>

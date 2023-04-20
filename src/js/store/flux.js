@@ -5,7 +5,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 	return {
 		store: {
-			contacts: [],
+			contacts: [{
+				"full_name": "Chainsaw Man",
+				"email": "aaa@ya.com",
+				"agenda_slug": "LaReContraGenda",
+				"address":"Somewhere in japan",
+				"phone":"9898989898",
+				"id": "3878"
+			},
+			{
+				"full_name": "Chainsaw Juan",
+				"email": "juan@ya.com",
+				"agenda_slug": "LaReContraGenda",
+				"address":"Somewhere in japan",
+				"phone":"juan",
+				"id": "3879"
+			}
+		],
 		},
 		actions: {
 			addContact:async (contact)=>{
@@ -37,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     contacts: newContacts
                 })
             },
-			editContact: (index, obj) => {
+			editContact: (obj, index) => {
 				console.log(index) 
 				console.log (obj) 
 				let store = getStore() 
