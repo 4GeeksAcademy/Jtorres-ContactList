@@ -29,14 +29,15 @@ export const Modal = props => {
 		} else if (props.index >= 0) {
 		// Editar contacto
 		actions.editContact(newContact, props.index)
-		setAddress(editContact.address)
-		setPhone(editContact.phone)
-		setEmail(editContact.email)
-		setFull_name(editContact.full_name)
+		// setAddress(editContact.address)
+		// setPhone(editContact.phone)
+		// setEmail(editContact.email)
+		// setFull_name(editContact.full_name)
 		} 
-		// else {
+		else {
 		//Indice invalido
-		// }
+		
+		}
 		console.log(props.index)
 	}
 	
@@ -118,6 +119,7 @@ export const Modal = props => {
 		{/* Modal 2 edit Contact*/}
 		{/* Modal 3 add Contact*/}
 		<div className="modal fade" id={"addContact-"+props.index} tabIndex="-1">
+			{/* <Modal index={(-1).toString()}/> */}
 			<div className="modal-dialog">
 				<div className="modal-content">
 					<div className="modal-header">
