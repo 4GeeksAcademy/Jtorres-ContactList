@@ -28,7 +28,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			addContact:async (contact)=>{
-				let response = await fetch(apiUrl+agendaSlug,{
+				console.log(JSON.stringify({...contact, agendaSlug: agendaSlug}))
+				let response = await fetch(apiUrl,{
 					body:JSON.stringify(contact),
 					method:"POST",
 					headers:{
