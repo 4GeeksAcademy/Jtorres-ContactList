@@ -49,7 +49,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({contacts:newContacts})
 				console.log(newContacts);
 			},
-			delContact: (index) => {
+			delContact:async (index) => {
+				//solucion teorica
+				console.log(JSON.stringify({...contact, agendaSlug: agendaSlug}))
+				let response = await fetch(apiUrl,{
+					body:JSON.stringify(contact),
+					method:"DELETE",
+					headers:{
+						"Content-Type":"application/json"
+					}
+				})
+				if (!response.ok){
+					console.log(response.status + ": "+response.statusText)
+					return 
+				}
+
                 let store = getStore()
                 let newContacts = store.contacts
                 newContacts.splice(index, 1)
@@ -58,12 +72,23 @@ const getState = ({ getStore, getActions, setStore }) => {
                 })
 				console.log(newContacts)
             },
-			editContact: (obj, index) => {
+			editContact:async (contact, index) => {
 				console.log(index) 
-				console.log (obj) 
+				console.log (contact) 
+				let response = await fetch(apiUrl+index,{
+					body:JSON.stringify(contact),
+					method:"PUT",
+					headers:{
+						"Content-Type":"application/json"
+					}
+				})
+				if (!response.ok){
+					console.log(response.status + ": "+response.statusText)
+					return 
+				}
 				let store = getStore() 
 				let newContacts =[...store.contacts];
-				newContacts [index] = obj;
+				newContacts [index] = contact;
 				setStore({ ...store, contacts: newContacts });
 				console.log(newContacts)
 			},

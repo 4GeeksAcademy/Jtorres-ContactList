@@ -31,6 +31,7 @@ export const Home = () => {
           full_name={contacts.full_name}
           address={contacts.address}
           email={contacts.email}
+          agendaSlug="LaReContraGenda"
           phone={contacts.phone}
           img="https://fastly.picsum.photos/id/758/200/200.jpg?hmac=uNGrAzLKg8Jmc7G9XT1alpHw2bbW64ysv9Sh3PnjCPA"
           index={contacts.id}

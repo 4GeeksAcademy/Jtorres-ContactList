@@ -14,11 +14,13 @@ export const Modal = props => {
 	const[email, setEmail] = useState(store.contacts[props.index]?.email||"")
 	const[phone, setPhone] = useState(store.contacts[props.index]?.phone||"")
 	const[address, setAddress] = useState(store.contacts[props.index]?.address||"")
+	const[agendaSlug, setAgenda] = useState(store.contacts[props.index?.agenda]||"")
 	const[img, setImg] = useState(store.contacts[props.index]?.img||"")
 	function guardar(){
 		let newContact={
 		full_name: full_name, 
-		email: email, 
+		email: email,
+		agendaSlug: agendaSlug, 
 		phone: phone, 
 		address: address,
 		index: props.index
