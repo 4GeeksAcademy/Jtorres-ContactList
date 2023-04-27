@@ -7,6 +7,8 @@ export const ContactCard = props => {
 	const [myIndex, setMyIndex] = useState(props.index);
 	console.log(myIndex)
 
+
+
 	const {store, actions} = useContext(Context)
 	return (
         <div className="container">           
@@ -33,7 +35,7 @@ export const ContactCard = props => {
                                 </button>
                             </i>
 							<i className="f p-2 card-text text-secondary">
-                                <button type="button" className="btn btn-info" data-bs-toggle="modal" data-bs-target={"#editContact-"+props.index}> 
+                                <button type="button" className="btn btn-info" onClick={()=> actions.setCurrentContact(myIndex)} data-bs-toggle="modal" data-bs-target={"#editContact-"+props.index}> 
 									Edit
                                 </button>
                             </i>
@@ -55,7 +57,7 @@ ContactCard.propTypes = {
 	onDelete: PropTypes.func,
 	full_name: PropTypes.string,
 	email: PropTypes.string,
-	telephone: PropTypes.string,
+	phone: PropTypes.string,
 	img: PropTypes.string,
 	address: PropTypes.string,
 	index: PropTypes.string,

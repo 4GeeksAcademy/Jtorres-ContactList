@@ -7,7 +7,6 @@ export const Modal = props => {
 	const [state, setState] = useState({
 		//initialize state here
 	});
-	const [myIndex, setMyIndex] = useState(props.index);
 
 	const {store, actions} = useContext(Context)
 	const[full_name, setFull_name] = useState(store.contacts[props.index]?.full_name||"")
@@ -20,17 +19,17 @@ export const Modal = props => {
 		let newContact={
 		full_name: full_name, 
 		email: email,
-		agendaSlug: agendaSlug, 
-		phone: phone, 
+		agenda_slug: process.env.AGENDA_SLUG, 
 		address: address,
-		index: props.index
+		phone: phone
 		}
-		if (props.index == -1) {
+		if (store.currentContact == -1) {
 		// Crear nuevo contacto
 		actions.addContact(newContact, props.index)
-		} else if (props.index >= 0) {
+		} 
+		else if (store.currentContact >= 0) {
 		// Editar contacto
-		actions.editContact(newContact, props.index)
+		actions.editContact(newContact, store.currentContact)
 		// setAddress(editContact.address)
 		// setPhone(editContact.phone)
 		// setEmail(editContact.email)
@@ -40,7 +39,7 @@ export const Modal = props => {
 		//Indice invalido
 		
 		}
-		console.log(props.index)
+		console.log(store.currentContact)
 	}
 	
 	return (
@@ -158,9 +157,9 @@ export const Modal = props => {
 							</div>
 							<div className="mb-3">
 								<div className="mb-3 row">
-									<label htmlFor="inputAddress" className="form-label" value={address} onChange={(e)=>setAddress(e.target.value)}>Address</label>
+									<label htmlFor="inputAddress" className="form-label">Address</label>
 								<div className="col-sm-10">
-									<input type="address" className="form-control" id="{props.address}" placeholder="Night City"/>
+									<input type="address" className="form-control" id="{props.address}" value={address} onChange={(e)=>setAddress(e.target.value)} placeholder="Night City"/>
 								</div>
 								</div>
 							</div>

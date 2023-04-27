@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext  } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import rigoImage from "/workspaces/Jtorres-ContactList/src/img/rigo-baby.jpg"
 import PropTypes from "prop-types";
 import { Modal } from "./Modal.js";
 import {ContactCard} from "../component/ContactCard.jsx";
@@ -19,7 +18,7 @@ export const Navbar = props => {
 					<span className="navbar-brand mb-0 h1">4Geeks</span>
 				</Link>
 				<div className="ml-auto">
-						<button className="btn btn-primary" data-bs-toggle="modal" data-bs-target={"#addContact--1"}>Add New Contact</button>
+						<button className="btn btn-primary" onClick={()=> actions.setCurrentContact(-1)} data-bs-toggle="modal" data-bs-target={"#addContact--1"}>Add New Contact</button>
 				</div>
 			</nav>
 			<Modal 
